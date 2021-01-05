@@ -2,7 +2,6 @@
 https://stormy-cove-24294.herokuapp.com/
 
 <h3>User routs:</h3><br>
-GET <'server'>/user/all "Get all users"<br>
 GET <'server'>/user/find/:id "Get user from id"<br>
 POST <'server'>/user/add/ "Add new user"<br>
 
