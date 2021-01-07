@@ -31,20 +31,24 @@ async function getRecipesByID(req, res, next) {
 async function create(req, res, next) {
 	try {
 		const {
+			main_image_src,
 			recipe_name,
 			category,
 			description,
 			ingredients,
 			recipe,
+			autor,
 		} = req.body;
 		const { _id, recept } = req.user;
 
 		const createRecipe = new Recipe({
+			main_image_src,
 			recipe_name,
 			category,
 			description,
 			ingredients,
 			recipe,
+			autor,
 		});
 
 		await createRecipe.save();

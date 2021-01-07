@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Cooking server</title>
+		<style type="text/css">
+			p {
+				margin: 0;
+			}
+			body {
+				background-color: antiquewhite;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h3>Server:</h3>
+		<b>https://stormy-cove-24294.herokuapp.com/</b>
+
+		<h3>User routs:</h3>
+		<pre>
+GET: https://stormy-cove-24294.herokuapp.com/user/all "Get all users"
+GET: https://stormy-cove-24294.herokuapp.com/user/find/:id "Get user from id"
+POST: https://stormy-cove-24294.herokuapp.com/user/add/ "Add new user"
+	{
+		"email": "<'email'>",
+		"name": "<'name'>",
+		"password": "<'password'>"
+	}
+POST: https://stormy-cove-24294.herokuapp.com/user/login/ "Login user - sending Token"
+	{
+		"email": "<'email'>",
+		"password": "<'password'>"
+	}
+POST: https://stormy-cove-24294.herokuapp.com/user/logout/ "Logout user"
+		</pre
+		>
+		<h3>Recipes routs</h3>
+		<pre>
+GET: https://stormy-cove-24294.herokuapp.com/ricepes/all "Get all recipes"
+POST: https://stormy-cove-24294.herokuapp.com/ricepes/create "Create recipes"
+	{
+		"main_image_src": "<'main_image_src'>"
+		"recipe_name": "<'recipe_name'>",
+		"category": "<'category'>",
+		"description": "<'description'>",
+		"ingredients": [
+			"<'ingredients-1'>",
+			"<'ingredients-2'>",
+			"<'ingredients-№'>",
+		],
+		"recipe": [
+			{
+				"image_path":"<'image_path'>"
+				"step-1":"<'step-1'>"
+			},
+			{
+				"image_path":"<'image_path'>"
+				"step-2":"<'step-2'>"
+			},
+			{
+				"image_path":"<'image_path'>"
+				"step-№":"<'step-№'>"
+			},
+		], 
+		"main_image_src": "<'main_image_src'>"
+	}
+GET: https://stormy-cove-24294.herokuapp.com/recipe/:recipeId "Get recipe from id - sending recipes"
+GET: https://stormy-cove-24294.herokuapp.com/ingredient "Get recipes from ingredient"
+	{
+		"ingredient": "<'ingredient'>",
+	}
+DELETE: https://stormy-cove-24294.herokuapp.com/recipe/:recipeId "Delete recipe from id"
+PATH: https://stormy-cove-24294.herokuapp.com/recipe/:recipeId "Update recipe from id"
+GET: https://stormy-cove-24294.herokuapp.com/recipe/user/:userName "Get all user recipes - sending recipes array"
+	</pre
+		>
+	</body>
+</html>

@@ -17,8 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.get("/", function (req, res) {
-	res.sendFile(__dirname + "/initiaPage/initialPage.html");
+	res.sendFile(__dirname + "/initialPage/initialPage.html");
 });
+
 app.use("/user", authRouter);
 app.use("/ricepes", ricepesRouter);
 
