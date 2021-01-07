@@ -29,11 +29,13 @@ POST: https://stormy-cove-24294.herokuapp.com/user/add/ "Add new user"
 		"name": "<'name'>",
 		"password": "<'password'>"
 	}
+
 POST: https://stormy-cove-24294.herokuapp.com/user/login/ "Login user - sending Token"
 	{
 		"email": "<'email'>",
 		"password": "<'password'>"
 	}
+
 POST: https://stormy-cove-24294.herokuapp.com/user/logout/ "Logout user"
 		</pre
 		>
@@ -67,11 +69,13 @@ POST: https://stormy-cove-24294.herokuapp.com/ricepes/create "Create recipes"
 		], 
 		"main_image_src": "<'main_image_src'>"
 	}
+
 GET: https://stormy-cove-24294.herokuapp.com/recipe/:recipeId "Get recipe from id - sending recipes"
 GET: https://stormy-cove-24294.herokuapp.com/ingredient "Get recipes from ingredient"
 	{
 		"ingredient": "<'ingredient'>",
 	}
+	
 DELETE: https://stormy-cove-24294.herokuapp.com/recipe/:recipeId "Delete recipe from id"
 PATH: https://stormy-cove-24294.herokuapp.com/recipe/:recipeId "Update recipe from id"
 GET: https://stormy-cove-24294.herokuapp.com/recipe/user/:userName "Get all user recipes - sending recipes array"
