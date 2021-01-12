@@ -28,7 +28,7 @@ async function addUser(req, res, next) {
 
 		const findUser = await User.findOne({ email });
 		if (findUser) {
-			res.status(401).send(`Тaкой ${email} существует`);
+			res.status(401).json({ error: `Тaкой ${email} существует` });
 		}
 
 		const createUser = new User({
@@ -52,13 +52,13 @@ async function loginUser(req, res, next) {
 		const user = await User.findOne({ email });
 
 		if (!user) {
-			res.status(400).send(`Тaкой ${email} несуществует`);
+			res.status(400).json({ error: `Тaкой ${email} несуществует` });
 		}
 
 		const isMatch = await bcrypt.compare(password, user.password);
 
 		if (!isMatch) {
-			res.status(400).send(`Неверный пароль`);
+			res.status(400).json({ error: `Неверный пароль` });
 		}
 
 		const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
