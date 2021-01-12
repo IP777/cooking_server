@@ -66,7 +66,7 @@ async function loginUser(req, res, next) {
 		});
 
 		//Добавляю к пользователю токен
-		const us = await User.findOneAndUpdate(
+		await User.findOneAndUpdate(
 			{ _id: user._id },
 			{ $set: { token: token } },
 			{ new: true }
