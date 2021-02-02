@@ -66,14 +66,14 @@ async function loginUser(req, res, next) {
 		});
 
 		//Добавляю к пользователю токен
-		await User.findOneAndUpdate(
+		const getUser = await User.findOneAndUpdate(
 			{ _id: user._id },
 			{ $set: { token: token } },
 			{ new: true }
 		);
 
 		//'Bearer' authtorization
-		res.json({ token });
+		res.json({ name: getUser.name, email: getUser.email, token: token });
 
 		//Cookie token
 		//res.cookie("token", token, { httpOnly: true });
