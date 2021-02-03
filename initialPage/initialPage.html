@@ -74,22 +74,27 @@ POST: https://stormy-cove-24294.herokuapp.com/ricepes/create "Create recipes"
 		"category": "<'category'>",
 		"description": "<'description'>",
 		"ingredients": [
-			"<'ingredients-1'>",
-			"<'ingredients-2'>",
-			"<'ingredients-№'>",
+			{
+				"id":"<'id-1'>",
+				"ingridient":"<'ingridient'>",
+				"count":"<'count'>"
+			},
+			{
+				"id":"<'id-№'>",
+				"ingridient":"<'ingridient'>",
+				"count":"<'count'>"
+			},
 		],
 		"recipe": [
 			{
-				"image_path":"<'image_path'>"
-				"step-1":"<'step-1'>"
+				"id":"<'id-1'>",
+				"imageUrl":"<'image_path'>",
+				"stepText":"<'step-1'>"
 			},
 			{
-				"image_path":"<'image_path'>"
-				"step-2":"<'step-2'>"
-			},
-			{
-				"image_path":"<'image_path'>"
-				"step-№":"<'step-№'>"
+				"id":"<'id-№'>",
+				"imageUrl":"<'image_path'>",
+				"stepText":"<'step-№'>"
 			},
 		], 
 		"main_image_src": "<'main_image_src'>"
