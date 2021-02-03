@@ -39,7 +39,7 @@ async function addUser(req, res, next) {
 
 		const newUser = await createUser.save();
 
-		res.status(200).send({ name: newUser.name, email: newUser.email });
+		res.status(200).json({ name: newUser.name, email: newUser.email });
 	} catch (err) {
 		next(err);
 	}
