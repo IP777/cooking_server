@@ -70,7 +70,7 @@ GET: https://stormy-cove-24294.herokuapp.com/ricepes/all "Get all recipes"
 POST: https://stormy-cove-24294.herokuapp.com/ricepes/create "Create recipes"
 
 	Request:
-	Bearer Token
+	"Authorization": "Bearer token"
 	{
 		"main_image_src": "<'main_image_src'>"
 		"recipe_name": "<'recipe_name'>",
@@ -103,7 +103,7 @@ POST: https://stormy-cove-24294.herokuapp.com/ricepes/create "Create recipes"
 		"main_image_src": "<'main_image_src'>"
 	}
 --------------------------------------------------------------------------------
-GET: https://stormy-cove-24294.herokuapp.com/recipe/:recipeId "Get recipe from id - sending recipes"
+GET: https://stormy-cove-24294.herokuapp.com/ricepes/recipe/:recipeId "Get recipe from id - sending recipes"
 --------------------------------------------------------------------------------
 GET: https://stormy-cove-24294.herokuapp.com/ingredient "Get recipes from ingredient"
 	{

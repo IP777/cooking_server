@@ -37,9 +37,8 @@ async function create(req, res, next) {
 			description,
 			ingredients,
 			recipe,
-			autor,
 		} = req.body;
-		const { _id, recept } = req.user;
+		const { _id, recept, name } = req.user;
 
 		const createRecipe = new Recipe({
 			main_image_src,
@@ -48,7 +47,7 @@ async function create(req, res, next) {
 			description,
 			ingredients,
 			recipe,
-			autor,
+			autor: name,
 		});
 
 		await createRecipe.save();
@@ -59,7 +58,7 @@ async function create(req, res, next) {
 			{ new: true }
 		);
 
-		res.status(200).send("Рецепт добавлен");
+		res.status(200).json({ message: "Рецепт добавлен" });
 	} catch (err) {
 		next(err);
 	}
