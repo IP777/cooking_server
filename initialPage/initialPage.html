@@ -111,8 +111,16 @@ GET: https://stormy-cove-24294.herokuapp.com/recipes/ingredient "Get recipes fro
 	}
 --------------------------------------------------------------------------------	
 DELETE: https://stormy-cove-24294.herokuapp.com/recipes/:recipeId "Delete recipe from id"
+
+	Request:
+		"Authorization": "Bearer token"
+
 --------------------------------------------------------------------------------
 PATH: https://stormy-cove-24294.herokuapp.com/recipes/:recipeId "Update recipe from id"
+
+	Request:
+		"Authorization": "Bearer token"
+
 --------------------------------------------------------------------------------
 GET: https://stormy-cove-24294.herokuapp.com/recipes/user/:userName "Get all user recipes - sending recipes array"
 	</pre
