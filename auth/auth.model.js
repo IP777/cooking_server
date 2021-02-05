@@ -14,7 +14,6 @@ const userSchema = new Schema({
 	name: {
 		type: String,
 		default: "Ivanov",
-		get: (v) => v.toUpperCase(),
 	},
 	password: {
 		type: String,

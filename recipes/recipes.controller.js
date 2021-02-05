@@ -85,7 +85,7 @@ async function deleteRecipeByID(req, res, next) {
 			{ new: true }
 		);
 
-		res.send("Рецепт удален");
+		res.send({ message: "Рецепт удален" });
 	} catch (err) {
 		next(err);
 	}

@@ -17,15 +17,17 @@ const authorize = async function (req, res, next) {
 			throw new Error();
 		}
 	} catch (err) {
-		return res.status(401).send({ message: "Not authorized" });
+		return res.status(401).send({ error: "Not authorized" });
 	}
 
 	//Если пользователь есть таким токеном то вытягиваем id из токена и находим по нему юзера
-	const payload = jwt.verify(token, process.env.JWT_SECRET);
-	const user = await userModel.findById(payload.id);
-
-	req.user = user;
-
+	try {
+		const payload = jwt.verify(token, process.env.JWT_SECRET);
+		const user = await userModel.findById(payload.id);
+		req.user = user;
+	} catch (err) {
+		return res.status(401).send({ error: "Re-authorize" });
+	}
 	next();
 };
 
