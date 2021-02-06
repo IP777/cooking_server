@@ -117,9 +117,29 @@ async function updateRecipe(req, res, next) {
 async function getForIngredientRecepes(req, res, next) {
 	try {
 		const { ingredient } = req.body;
-		console.log(ingredient);
+		//console.log(ingredient);
 
-		const recipeList = await Recipe.find({ recipe_name: $all });
+		// const recipeList = await Recipe.find({
+		// 	recipe_name: { $regex: "Салат" },
+		// });
+		const recipeList = await Recipe.find({
+			ingridient: { $regex: ingredient },
+		});
+
+		res.status(200).send(recipeList);
+	} catch (err) {
+		next(err);
+	}
+}
+
+async function getForNameRecepes(req, res, next) {
+	try {
+		const { recipe_name } = req.body;
+
+		const recipeList = await Recipe.find({
+			recipe_name: { $regex: recipe_name },
+		});
+
 		res.status(200).send(recipeList);
 	} catch (err) {
 		next(err);
@@ -133,4 +153,5 @@ module.exports = {
 	deleteRecipeByID,
 	updateRecipe,
 	getForIngredientRecepes,
+	getForNameRecepes,
 };

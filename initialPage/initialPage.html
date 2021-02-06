@@ -106,8 +106,17 @@ POST: https://stormy-cove-24294.herokuapp.com/ricepes/create "Create recipes"
 GET: https://stormy-cove-24294.herokuapp.com/ricepes/recipe/:recipeId "Get recipe from id - sending recipes"
 --------------------------------------------------------------------------------
 POST: https://stormy-cove-24294.herokuapp.com/recipes/ingredient "Get recipes from ingredient"
+
+	Request:
 	{
 		"ingredient": "<'ingredient'>",
+	}
+--------------------------------------------------------------------------------	
+POST: https://stormy-cove-24294.herokuapp.com/recipes/name "Get recipes from recipe name"
+
+	Request:
+	{
+		"recipe_name": "<'recipe_name'>",
 	}
 --------------------------------------------------------------------------------	
 DELETE: https://stormy-cove-24294.herokuapp.com/recipes/:recipeId "Delete recipe from id"

@@ -7,7 +7,7 @@ const recipesSchema = new Schema({
 	category: String,
 	autor: String,
 	description: String,
-	ingredients: Array,
+	ingredients: [{ id: String, ingridient: String, count: String }],
 	recipe: [Object],
 	main_image_src: String,
 });
