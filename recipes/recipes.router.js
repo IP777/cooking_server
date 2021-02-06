@@ -7,7 +7,7 @@ const { authorize } = require("../auth/auth.middleware");
 
 ricepesRouter.get("/all", controller.getAllRecepes);
 ricepesRouter.get("/recipe/:recipeId", controller.getRecipesByID);
-ricepesRouter.get("/ingredient", controller.getForIngredientRecepes);
+ricepesRouter.post("/ingredient", controller.getForIngredientRecepes);
 ricepesRouter.post("/create", authorize, controller.create);
 ricepesRouter.delete("/:recipeId", authorize, controller.deleteRecipeByID);
 ricepesRouter.patch("/:recipeId", authorize, controller.updateRecipe);

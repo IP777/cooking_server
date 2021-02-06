@@ -117,8 +117,9 @@ async function updateRecipe(req, res, next) {
 async function getForIngredientRecepes(req, res, next) {
 	try {
 		const { ingredient } = req.body;
+		console.log(ingredient);
 
-		const recipeList = await Recipe.find({ ingredients: ingredient });
+		const recipeList = await Recipe.find({ recipe_name: $all });
 		res.status(200).send(recipeList);
 	} catch (err) {
 		next(err);
