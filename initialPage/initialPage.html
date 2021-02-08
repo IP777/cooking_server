@@ -104,19 +104,26 @@ POST: https://stormy-cove-24294.herokuapp.com/ricepes/create "Create recipes"
 	}
 --------------------------------------------------------------------------------
 GET: https://stormy-cove-24294.herokuapp.com/ricepes/recipe/:recipeId "Get recipe from id - sending recipes"
---------------------------------------------------------------------------------
-POST: https://stormy-cove-24294.herokuapp.com/recipes/ingredient "Get recipes from ingredient"
-
-	Request:
-	{
-		"ingredient": "<'ingredient'>",
-	}
 --------------------------------------------------------------------------------	
-POST: https://stormy-cove-24294.herokuapp.com/recipes/name "Get recipes from recipe name"
+POST: https://stormy-cove-24294.herokuapp.com/recipes/search/name "Get recipes from recipe name"
 
 	Request:
 	{
 		"recipe_name": "<'recipe_name'>",
+	}
+--------------------------------------------------------------------------------	
+POST: https://stormy-cove-24294.herokuapp.com/recipes/search/category "Get recipes from recipe category"
+
+	Request:
+	{
+		"category": "<'category'>",
+	}
+--------------------------------------------------------------------------------
+POST: https://stormy-cove-24294.herokuapp.com/recipes/search/ingredient "Get recipes from recipe ingredient"
+
+	Request:
+	{
+		"ingredient": "<'ingredient'>",
 	}
 --------------------------------------------------------------------------------	
 DELETE: https://stormy-cove-24294.herokuapp.com/recipes/:recipeId "Delete recipe from id"
@@ -129,6 +136,7 @@ PATH: https://stormy-cove-24294.herokuapp.com/recipes/:recipeId "Update recipe f
 
 	Request:
 		"Authorization": "Bearer token"
+		{recipe_body}
 
 --------------------------------------------------------------------------------
 GET: https://stormy-cove-24294.herokuapp.com/recipes/user/:userName "Get all user recipes - sending recipes array"

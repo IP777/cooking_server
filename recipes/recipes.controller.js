@@ -114,25 +114,7 @@ async function updateRecipe(req, res, next) {
 	}
 }
 
-async function getForIngredientRecepes(req, res, next) {
-	try {
-		const { ingredient } = req.body;
-		//console.log(ingredient);
-
-		// const recipeList = await Recipe.find({
-		// 	recipe_name: { $regex: "Салат" },
-		// });
-		const recipeList = await Recipe.find({
-			ingridient: { $regex: ingredient },
-		});
-
-		res.status(200).send(recipeList);
-	} catch (err) {
-		next(err);
-	}
-}
-
-async function getForNameRecepes(req, res, next) {
+async function searchForNameRecepes(req, res, next) {
 	try {
 		const { recipe_name } = req.body;
 
@@ -140,7 +122,49 @@ async function getForNameRecepes(req, res, next) {
 			recipe_name: { $regex: recipe_name },
 		});
 
-		res.status(200).send(recipeList);
+		res.status(200).send(
+			recipeList.length <= 0
+				? { message: "Рецепт не найден" }
+				: recipeList
+		);
+	} catch (err) {
+		next(err);
+	}
+}
+
+async function searchForCaregoryRecepes(req, res, next) {
+	try {
+		const { category } = req.body;
+
+		const recipeList = await Recipe.find({
+			category: { $regex: category },
+		});
+
+		res.status(200).send(
+			recipeList.length <= 0
+				? { message: "Категория не найдена" }
+				: recipeList
+		);
+	} catch (err) {
+		next(err);
+	}
+}
+
+// prettier-ignore
+async function searchForIngredientRecepes(req, res, next) {
+	try {
+		const { ingredient } = req.body;
+
+		// const recipeList = await Recipe.find(
+		// 	{  "ingredients.ingridient": { $regex: ingredient }  },
+		// );
+		const recipeList = await Recipe.find().where('ingredients').elemMatch({ ingridient: { $regex: ingredient } });
+
+		res.status(200).send(
+			recipeList.length <= 0
+				? { message: "Такой ингридиент не найден" }
+				: recipeList
+		);
 	} catch (err) {
 		next(err);
 	}
@@ -152,6 +176,7 @@ module.exports = {
 	getRecipesByID,
 	deleteRecipeByID,
 	updateRecipe,
-	getForIngredientRecepes,
-	getForNameRecepes,
+	searchForNameRecepes,
+	searchForCaregoryRecepes,
+	searchForIngredientRecepes,
 };
