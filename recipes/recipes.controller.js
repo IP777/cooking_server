@@ -123,9 +123,7 @@ async function searchForNameRecepes(req, res, next) {
 		});
 
 		res.status(200).send(
-			recipeList.length <= 0
-				? { message: "Рецепт не найден" }
-				: recipeList
+			recipeList.length <= 0 ? { error: "Рецепт не найден" } : recipeList
 		);
 	} catch (err) {
 		next(err);
@@ -142,7 +140,7 @@ async function searchForCaregoryRecepes(req, res, next) {
 
 		res.status(200).send(
 			recipeList.length <= 0
-				? { message: "Категория не найдена" }
+				? { error: "Категория не найдена" }
 				: recipeList
 		);
 	} catch (err) {
@@ -162,7 +160,7 @@ async function searchForIngredientRecepes(req, res, next) {
 
 		res.status(200).send(
 			recipeList.length <= 0
-				? { message: "Такой ингридиент не найден" }
+				? { error: "Такой ингридиент не найден" }
 				: recipeList
 		);
 	} catch (err) {
