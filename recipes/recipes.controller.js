@@ -94,6 +94,7 @@ async function deleteRecipeByID(req, res, next) {
 async function updateRecipe(req, res, next) {
 	try {
 		const { recipeId } = req.params;
+		console.log(recipeId);
 
 		const recipeUpdate = await Recipe.findOneAndUpdate(
 			{ _id: recipeId },

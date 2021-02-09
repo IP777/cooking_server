@@ -12,7 +12,7 @@ ricepesRouter.post("/search/category", controller.searchForCaregoryRecepes);
 ricepesRouter.post("/search/ingridient", controller.searchForIngredientRecepes);
 ricepesRouter.post("/create", authorize, controller.create);
 ricepesRouter.delete("/:recipeId", authorize, controller.deleteRecipeByID);
-ricepesRouter.patch("/:recipeId", authorize, controller.updateRecipe);
+ricepesRouter.post("/:recipeId", authorize, controller.updateRecipe);
 
 ricepesRouter.get("/user/:userName", agrigate.userRecipe);
 
