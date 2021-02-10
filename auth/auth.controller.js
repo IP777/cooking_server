@@ -1,11 +1,17 @@
 const User = require("./auth.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 async function getAllUsers(req, res, next) {
+	const { password } = req.params;
 	try {
-		const userList = await User.find();
-		res.status(200).send(userList);
+		if (password === process.env.ADMIN_PASSWORD) {
+			const userList = await User.find();
+			res.status(200).send(userList);
+		} else {
+			res.status(401).send({ error: `Неверный пароль.` });
+		}
 	} catch (err) {
 		next(err);
 	}
