@@ -67,14 +67,18 @@ async function loginUser(req, res, next) {
 			res.status(400).json({ error: `Неверный пароль` });
 		}
 
-		const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-			expiresIn: process.env.JWT_EXPIRES,
-		});
+		//Делаю выборку если у юзера есть токен то не переписываем токен
+		//Если токен отсутсвует (юзер разлогинился) то записываем новый
+		const token = user.token
+			? user.token
+			: jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+					expiresIn: process.env.JWT_EXPIRES,
+			  });
 
 		//Добавляю к пользователю токен
 		const getUser = await User.findOneAndUpdate(
 			{ _id: user._id },
-			{ $set: { token: user.token ? user.token : token } },
+			{ $set: { token: token } },
 			{ new: true }
 		);
 
