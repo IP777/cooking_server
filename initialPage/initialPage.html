@@ -21,7 +21,7 @@
 
 		<h3>User routs:</h3>
 		<pre>
-GET: https://stormy-cove-24294.herokuapp.com/user/all "Get all users"
+GET: https://stormy-cove-24294.herokuapp.com/user/all/:password "Admin password. Get all users"
 --------------------------------------------------------------------------------
 GET: https://stormy-cove-24294.herokuapp.com/user/find/:id "Get user from id"
 --------------------------------------------------------------------------------
@@ -61,6 +61,11 @@ POST: https://stormy-cove-24294.herokuapp.com/user/logout/ "Logout user"
 	{
 		"email": "<'email'>",
 	}
+--------------------------------------------------------------------------------
+GET: https://stormy-cove-24294.herokuapp.com/user/test "Test user for autorize. Return error or message object"
+
+	Request:
+	"Authorization": "Bearer token"
 		</pre
 		>
 		<h3>Recipes routs</h3>
