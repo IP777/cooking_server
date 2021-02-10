@@ -74,7 +74,7 @@ async function loginUser(req, res, next) {
 		//Добавляю к пользователю токен
 		const getUser = await User.findOneAndUpdate(
 			{ _id: user._id },
-			{ $set: { token: token } },
+			{ $set: { token: user.token ? user.token : token } },
 			{ new: true }
 		);
 
