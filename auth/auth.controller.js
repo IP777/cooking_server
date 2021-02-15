@@ -4,14 +4,9 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 async function getAllUsers(req, res, next) {
-	const { password } = req.params;
 	try {
-		if (password === process.env.ADMIN_PASSWORD) {
-			const userList = await User.find();
-			res.status(200).send(userList);
-		} else {
-			res.status(401).send({ error: `Неверный пароль.` });
-		}
+		const userList = await User.find();
+		res.status(200).send(userList);
 	} catch (err) {
 		next(err);
 	}

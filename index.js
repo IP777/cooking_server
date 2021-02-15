@@ -6,6 +6,7 @@ const connect = require("./db/connect");
 
 const authRouter = require("./auth/auth.router");
 const ricepesRouter = require("./recipes/recipes.router");
+const categoryRouter = require("./category/category.router");
 
 const PORT = process.env.PORT || 80;
 
@@ -22,6 +23,7 @@ app.get("/", function (req, res) {
 
 app.use("/user", authRouter);
 app.use("/ricepes", ricepesRouter);
+app.use("/category", categoryRouter);
 
 app.use((err, req, res, next) => {
 	const { message, status } = err;

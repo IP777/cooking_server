@@ -145,7 +145,29 @@ POST: https://stormy-cove-24294.herokuapp.com/recipes/:recipeId "Update recipe f
 
 --------------------------------------------------------------------------------
 GET: https://stormy-cove-24294.herokuapp.com/recipes/user/:userName "Get all user recipes - sending recipes array"
-	</pre
+		</pre
+		>
+		<h3>Category routs</h3>
+		<pre>
+--------------------------------------------------------------------------------
+GET: https://stormy-cove-24294.herokuapp.com/category/all "Get all category"
+--------------------------------------------------------------------------------	
+POST: https://stormy-cove-24294.herokuapp.com/category/add/:password "Add category only admin"
+
+	Request:
+	{
+		"name": "<'name'>",
+	}
+--------------------------------------------------------------------------------	
+DELETE: https://stormy-cove-24294.herokuapp.com/delete/:password "Delete category from id"
+
+	Request:
+	{
+		"categoryId": "<'categoryId'>",
+	}
+
+--------------------------------------------------------------------------------
+		</pre
 		>
 	</body>
 </html>
