@@ -119,8 +119,12 @@ async function searchForNameRecepes(req, res, next) {
 	try {
 		const { recipe_name } = req.body;
 
+		// const recipeList = await Recipe.find({
+		// 	recipe_name: { $regex: recipe_name },
+		// });
+
 		const recipeList = await Recipe.find({
-			recipe_name: { $regex: recipe_name },
+			recipe_name: { $regex: recipe_name, $options: "i" },
 		});
 
 		res.status(200).send(
